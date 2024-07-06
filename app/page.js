@@ -45,41 +45,90 @@ const projects = [
 
 const cards = [
       {
-        url: "/imgs/abstract/1.jpg",
-        title: "Title 1",
-        id: 1,
+            url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            title: "Title 1",
+            id: 1,
+            color: "#000000",
       },
       {
-        url: "/imgs/abstract/2.jpg",
-        title: "Title 2",
-        id: 2,
+            url: "https://images.unsplash.com/photo-1573867639040-6dd25fa5f597?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            title: "Title 2",
+            id: 2,
+            color: "#706D63",
       },
       {
-        url: "/imgs/abstract/3.jpg",
-        title: "Title 3",
-        id: 3,
+            url: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            title: "Title 3",
+            id: 3,
+            color: "#EFE8D3",
       },
       {
-        url: "/imgs/abstract/4.jpg",
-        title: "Title 4",
-        id: 4,
+            url: "https://images.unsplash.com/photo-1518186233392-c232efbf2373?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            title: "Title 4",
+            id: 4,
+            color: "#8C8C8C",
       },
       {
-        url: "/imgs/abstract/5.jpg",
-        title: "Title 5",
-        id: 5,
+            url: "https://images.unsplash.com/photo-1481487196290-c152efe083f5?q=80&w=1562&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            title: "Title 5",
+            id: 5,
+            color: "#706D63",
       },
       {
-        url: "/imgs/abstract/6.jpg",
-        title: "Title 6",
-        id: 6,
+            url: "https://images.unsplash.com/photo-1455894127589-22f75500213a?q=80&w=1387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            title: "Title 6",
+            id: 6,
+            color: "#EFE8D3",
       },
       {
-        url: "/imgs/abstract/7.jpg",
-        title: "Title 7",
-        id: 7,
+            url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1420&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            title: "Title 7",
+            id: 7,
+            color: "#706D63",
       },
-    ];
+      {
+            url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            title: "Title 1",
+            id: 1,
+            color: "#000000",
+      },
+      {
+            url: "https://images.unsplash.com/photo-1573867639040-6dd25fa5f597?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            title: "Title 2",
+            id: 2,
+            color: "#706D63",
+      },
+      {
+            url: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            title: "Title 3",
+            id: 3,
+            color: "#EFE8D3",
+      },
+      {
+            url: "https://images.unsplash.com/photo-1518186233392-c232efbf2373?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            title: "Title 4",
+            id: 4,
+            color: "#8C8C8C",
+      },
+      {
+            url: "https://images.unsplash.com/photo-1481487196290-c152efe083f5?q=80&w=1562&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            title: "Title 5",
+            id: 5,
+            color: "#706D63",
+      },
+      {
+            url: "https://images.unsplash.com/photo-1455894127589-22f75500213a?q=80&w=1387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            title: "Title 6",
+            id: 6,
+            color: "#EFE8D3",
+      },
+      {
+            url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1420&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            title: "Title 7",
+            id: 7,
+            color: "#706D63",
+      },
+];
 
 const Page = () => {
       useEffect(() => {
