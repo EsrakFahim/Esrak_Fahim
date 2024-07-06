@@ -1,0 +1,9 @@
+.mainCursor {
+      position: fixed;
+      width: 15px;
+      height: 15px;
+      background-color: #000;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999999999;
+}
