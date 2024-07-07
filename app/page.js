@@ -8,6 +8,7 @@ import Lenis from "lenis";
 import ButtonAmin from "@/app/AnimComponents/ButtonAmin/ButtonAmin";
 import HorizontalScroll from "@/app/Components/HorizontalScroll/HorizontalScroll";
 import Link from "next/link";
+import TechSection from "./Components/TechSection/TechSection";
 
 const projects = [
       {
@@ -170,6 +171,7 @@ const Page = () => {
                                     </Link>
                               </div>
                         </div>
+                        <TechSection />
                         <HorizontalScroll data={cards} />
                   </div>
             </div>
