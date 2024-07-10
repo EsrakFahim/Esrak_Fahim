@@ -11,16 +11,11 @@ const HeroSection = () => {
       return (
             <div className="h-screen bg-primary relative  flex overflow-hidden">
                   <div
-                        className="absolute flex flex-col gap-0  "
-                        // style={{
-                        //       top: "calc(100vh - 350px)",
-                        // }}
+                        className="absolute flex flex-col gap-1 "
                   >
-                        <TextSlider text="Web Developer -" direction={1} />
-                        <TextSlider text="Web Developer -" direction={-1} />
-                        <TextSlider text="Web Developer -" direction={1} />
-                        {/* <TextSlider text="Web Developer -" direction={-1} />
-                        <TextSlider text="Web Developer -" direction={1} /> */}
+                        <TextSlider text="Innovative Solutions -" direction={-1} />
+                        <TextSlider text="Cutting-Edge Technology -" direction={1} />
+                        <TextSlider text="Esrak Fahim -" direction={-1} />
                   </div>
             </div>
       );

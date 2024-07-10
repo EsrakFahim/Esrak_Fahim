@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Magnet from "@/app/AnimComponents/Magnet/Magnet";
+import { AnimatePresence } from "framer-motion";
+import Nav from "./Nav/Nav";
 
 const navItems = [
       {
@@ -65,61 +67,76 @@ const NavBar = () => {
       const isHomePage = pathname === "/";
 
       return (
-            <div className="w-full absolute top-0 z-[99999]">
-                  <div
-                        className={`absolute flex z-10 top-0 ${
-                              isHomePage ? "text-TextPrimary" : "text-TextPrimary"
-                        } mix-blend-difference p-9 justify-between items-center box-border w-full`}
-                  >
-                        <Magnet>
-                              <Link
-                                    href="/"
-                                    className="logo flex cursor-pointer"
-                              >
-                                    <p className="copyRight">&copy;</p>
-                                    <div className="name">
-                                          <p>Develop By</p>
-                                          <p>Esrak</p>
-                                          <p>Fahim</p>
-                                    </div>
-                              </Link>
-                        </Magnet>
-                        <div className="nav flex items-center">
-                              {navItems.map((item, index) => (
-                                    <Magnet key={index}>
-                                          <div className="el flex-col relative z-10 p-4 cursor-pointer">
-                                                {item.href && (
-                                                      <Link href={item.href}>
-                                                            {item.name}
-                                                      </Link>
-                                                )}
-                                                <div
-                                                      className={`indicator ${
-                                                            isHomePage
-                                                                  ? "bg-TextPrimary"
-                                                                  : "bg-TextPrimary"
-                                                      } `}
-                                                />
+            <>
+                  <div className="w-full absolute top-0 z-[99999]">
+                        <div
+                              className={`absolute flex z-10 top-0 ${
+                                    isHomePage
+                                          ? "text-TextPrimary"
+                                          : "text-TextPrimary"
+                              } mix-blend-difference p-9 justify-between items-center box-border w-full`}
+                        >
+                              <Magnet>
+                                    <Link
+                                          href="/"
+                                          className="logo flex cursor-pointer"
+                                    >
+                                          <p className="copyRight">&copy;</p>
+                                          <div className="name">
+                                                <p>Develop By</p>
+                                                <p>Esrak</p>
+                                                <p>Fahim</p>
                                           </div>
-                                    </Magnet>
-                              ))}
+                                    </Link>
+                              </Magnet>
+                              <div className="nav flex items-center">
+                                    {navItems.map((item, index) => (
+                                          <Magnet key={index}>
+                                                <div className="el flex-col relative z-10 p-4 cursor-pointer">
+                                                      {item.href && (
+                                                            <Link
+                                                                  href={
+                                                                        item.href
+                                                                  }
+                                                            >
+                                                                  {item.name}
+                                                            </Link>
+                                                      )}
+                                                      <div
+                                                            className={`indicator ${
+                                                                  isHomePage
+                                                                        ? "bg-TextPrimary"
+                                                                        : "bg-TextPrimary"
+                                                            } `}
+                                                      />
+                                                </div>
+                                          </Magnet>
+                                    ))}
+                              </div>
+                        </div>
+                        <div ref={button} className="headerBtnContainer">
+                              <Magnet>
+                                    <div
+                                          onClick={() => setIsActive(!isActive)}
+                                          className="btn"
+                                    >
+                                          <div
+                                                className={`burger ${
+                                                      isActive
+                                                            ? "burgerActive"
+                                                            : ""
+                                                }`}
+                                          />
+                                    </div>
+                              </Magnet>
                         </div>
                   </div>
-                  <div ref={button} className="headerBtnContainer">
-                        <Magnet>
-                              <div
-                                    onClick={() => setIsActive(!isActive)}
-                                    className="btn"
-                              >
-                                    <div
-                                          className={`burger ${
-                                                isActive ? "burgerActive" : ""
-                                          }`}
-                                    />
-                              </div>
-                        </Magnet>
-                  </div>
-            </div>
+                  <AnimatePresence mode="wait" >
+                        {
+                              isActive && <Nav navItems={navItems}/>
+                        }
+                  </AnimatePresence>
+            </>
       );
 };
 
