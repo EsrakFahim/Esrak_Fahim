@@ -38,7 +38,7 @@ const PixelBG = () => {
       };
 
       return (
-            <div className="relative flex h-screen items-center justify-center bg-white overflow-hidden pixelBG ">
+            <div className="relative flex h-screen items-center justify-center bg-[#f4f3f3] overflow-hidden pixelBG ">
                   <div className="text-[6vw] text-center font-extralight  w-[70%] z-10 pointer-events-none uppercase mix-blend-difference text-white">
                         <p>
                               We{" "}

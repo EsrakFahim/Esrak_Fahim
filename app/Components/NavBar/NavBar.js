@@ -68,7 +68,7 @@ const NavBar = () => {
             <div className="w-full absolute top-0 z-[99999]">
                   <div
                         className={`absolute flex z-10 top-0 ${
-                              isHomePage ? "text-white" : "text-black"
+                              isHomePage ? "text-TextPrimary" : "text-TextPrimary"
                         } mix-blend-difference p-9 justify-between items-center box-border w-full`}
                   >
                         <Magnet>
@@ -96,8 +96,8 @@ const NavBar = () => {
                                                 <div
                                                       className={`indicator ${
                                                             isHomePage
-                                                                  ? "bg-white"
-                                                                  : "bg-black"
+                                                                  ? "bg-TextPrimary"
+                                                                  : "bg-TextPrimary"
                                                       } `}
                                                 />
                                           </div>

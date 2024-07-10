@@ -87,7 +87,7 @@ const LinkBox = ({ Icon, href }) => {
                               style={{
                                     clipPath: BOTTOM_RIGHT_CLIP,
                               }}
-                              className="absolute inset-0 grid place-content-center bg-neutral-900 text-white"
+                              className="absolute inset-0 grid place-content-center bg-TextPrimary text-white"
                         >
                               <Icon className="text-xl sm:text-3xl lg:text-4xl" />
                         </div>

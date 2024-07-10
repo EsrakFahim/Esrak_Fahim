@@ -154,7 +154,7 @@ const Page = () => {
       }, []);
 
       return (
-            <div>
+            <div className='bg-primary text-TextPrimary'>
                   <div>
                         <HeroSection />
                         <PixelBG />
