@@ -3,6 +3,7 @@
 import React from "react";
 import ProjectsGallery from "@/app/AnimComponents/ProjectsGallery/ProjectsGallery";
 import ButtonAmin from "@/app/AnimComponents/ButtonAmin/ButtonAmin";
+import { List, SquaresFour } from "@phosphor-icons/react";
 
 const projects = [
       {
@@ -113,37 +114,51 @@ const page = () => {
                               Projects of the Next Level on <br /> Which I Have
                               Worked
                         </h1>
-                        <div className="flex items-center gap-6 my-10">
-                              <ButtonAmin>
-                                    <div className="flex items-end gap-1">
-                                          <span>All</span>
-                                          <span className="text-xs text-blue-400 ">
-                                                42
+                        <div className="flex justify-between items-center">
+                              <div className="flex items-center gap-6 my-10">
+                                    <ButtonAmin>
+                                          <div className="flex items-end gap-1">
+                                                <span>All</span>
+                                                <span className="text-xs text-blue-400 ">
+                                                      42
+                                                </span>
+                                          </div>
+                                    </ButtonAmin>
+                                    <ButtonAmin>
+                                          <div className="flex items-end gap-1">
+                                                <span>Design</span>
+                                                <span className="text-xs text-blue-400 ">
+                                                      11
+                                                </span>
+                                          </div>
+                                    </ButtonAmin>
+                                    <ButtonAmin>
+                                          <div className="flex items-end gap-1">
+                                                <span>Development</span>
+                                                <span className="text-xs text-blue-400 ">
+                                                      31
+                                                </span>
+                                          </div>
+                                    </ButtonAmin>
+                              </div>
+                              <div className="flex items-center gap-6 my-10">
+                                    <ButtonAmin rounded={true} >
+                                          <span className="flex items-center justify-center">
+                                                <List size={32} />
                                           </span>
-                                    </div>
-                              </ButtonAmin>
-                              <ButtonAmin>
-                                    <div className="flex items-end gap-1">
-                                          <span>Design</span>
-                                          <span className="text-xs text-blue-400 ">
-                                                11
+                                    </ButtonAmin>
+                                    <ButtonAmin rounded={true} >
+                                          <span className="flex items-center justify-center">
+                                                <SquaresFour size={32} />
                                           </span>
-                                    </div>
-                              </ButtonAmin>
-                              <ButtonAmin>
-                                    <div className="flex items-end gap-1">
-                                          <span>Development</span>
-                                          <span className="text-xs text-blue-400 ">
-                                                31
-                                          </span>
-                                    </div>
-                              </ButtonAmin>
+                                    </ButtonAmin>
+                              </div>
                         </div>
                   </div>
-                  <div>
-                        <ProjectsGallery 
-                        projects={projects}
-                        fontMultiplier={0.45}
+                  <div data-scroll data-scroll-speed={0.1}>
+                        <ProjectsGallery
+                              projects={projects}
+                              fontMultiplier={0.45}
                         />
                   </div>
             </div>

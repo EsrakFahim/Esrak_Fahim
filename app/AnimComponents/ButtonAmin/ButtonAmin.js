@@ -5,7 +5,7 @@ import React, { useEffect, useRef } from "react";
 import './ButtonAmin.scss'
 import Magnet from "../Magnet/Magnet";
 
-const ButtonAmin = ({ children, background = "#455ce9", ...attributes }) => {
+const ButtonAmin = ({ children, background = "#455ce9",rounded, ...attributes  }) => {
       const circle = useRef(null);
       let timeLine = useRef(null);
       let timeoutId = null;
@@ -38,7 +38,7 @@ const ButtonAmin = ({ children, background = "#455ce9", ...attributes }) => {
       return (
             <Magnet>
                   <div
-                        className="roundedButton"
+                        className={`roundedButton ${rounded ? "rounded" : "capsule"}`}
                         style={{ overflow: "hidden" }}
                         onMouseEnter={() => manageMouseEnter()}
                         onMouseLeave={() => manageMouseLeave()}

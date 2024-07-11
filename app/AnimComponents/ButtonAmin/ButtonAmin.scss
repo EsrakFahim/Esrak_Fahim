@@ -1,12 +1,10 @@
 .roundedButton {
-      border-radius: 3em;
       border: 1px solid rgb(136, 136, 136);
       cursor: pointer;
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 15px 60px 15px 60px;
 
       span {
             position: relative;
@@ -20,6 +18,19 @@
             }
       }
 }
+
+.capsule {
+      border-radius: 3rem;
+      padding: 15px 60px 15px 60px;
+}
+
+.rounded {
+      width: 80px;
+      height: 80px;
+      padding: 20px;
+      border-radius: 99999999999px;
+}
+
 
 .circle {
       width: 100%;

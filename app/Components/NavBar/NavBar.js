@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Magnet from "@/app/AnimComponents/Magnet/Magnet";
 import { AnimatePresence } from "framer-motion";
 import Nav from "./Nav/Nav";
+import ButtonAmin from "@/app/AnimComponents/ButtonAmin/ButtonAmin";
 
 const navItems = [
       {
@@ -114,27 +115,28 @@ const NavBar = () => {
                                     ))}
                               </div>
                         </div>
-                        <div ref={button} className="headerBtnContainer">
-                              <Magnet>
+                        <div
+                              ref={button}
+                              className="headerBtnContainer"
+                        >
+                              <ButtonAmin
+                                    onClick={() => {
+                                          setIsActive(!isActive);
+                                    }}
+                                    className="btn"
+                              >
                                     <div
-                                          onClick={() => setIsActive(!isActive)}
-                                          className="btn"
-                                    >
-                                          <div
-                                                className={`burger ${
-                                                      isActive
-                                                            ? "burgerActive"
-                                                            : ""
-                                                }`}
-                                          />
-                                    </div>
-                              </Magnet>
+                                          className={`burger ${
+                                                isActive
+                                                      ? "burgerActive"
+                                                      : ""
+                                          }`}
+                                    ></div>
+                              </ButtonAmin>
                         </div>
                   </div>
-                  <AnimatePresence mode="wait" >
-                        {
-                              isActive && <Nav navItems={navItems}/>
-                        }
+                  <AnimatePresence mode="wait">
+                        {isActive && <Nav navItems={navItems} />}
                   </AnimatePresence>
             </>
       );
