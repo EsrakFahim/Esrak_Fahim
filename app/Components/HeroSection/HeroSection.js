@@ -16,6 +16,7 @@ const HeroSection = () => {
                         <TextSlider text="Innovative Solutions -" direction={-1} />
                         <TextSlider text="Cutting-Edge Technology -" direction={1} />
                         <TextSlider text="Esrak Fahim -" direction={-1} />
+                        <TextSlider text="Fatin Esrak Fahim -" direction={-1} />
                   </div>
             </div>
       );
