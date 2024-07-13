@@ -13,34 +13,31 @@ import TechSection from "./Components/TechSection/TechSection";
 const projects = [
       {
             title: "C2 Montreal",
-
             src: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-
             color: "#000000",
+            year: 2021,
+            sector: "Development",
       },
-
       {
             title: "Office Studio",
-
             src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-
             color: "#8C8C8C",
+            year: 2020,
+            sector: "Development & Design",
       },
-
       {
             title: "Locomotive",
-
             src: "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-
             color: "#EFE8D3",
+            year: 2019,
+            sector: "Development",
       },
-
       {
             title: "Silencio",
-
             src: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-
             color: "#706D63",
+            year: 2021,
+            sector: "Design",
       },
 ];
 
@@ -154,7 +151,7 @@ const Page = () => {
       }, []);
 
       return (
-            <div className='bg-primary text-TextPrimary'>
+            <div id="main" className=' bg-primary text-TextPrimary'>
                   <div>
                         <HeroSection />
                         <PixelBG />
@@ -172,7 +169,7 @@ const Page = () => {
                               </div>
                         </div>
                         <TechSection />
-                        <HorizontalScroll data={cards} />
+                        {/* <HorizontalScroll data={cards} /> */}
                   </div>
             </div>
       );

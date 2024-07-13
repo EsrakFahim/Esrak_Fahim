@@ -1,10 +1,12 @@
+"use client";
+
 import React from "react";
 import TechBox from "./TechBox";
 import { motion } from "framer-motion";
 
 const TechSection = () => {
       return (
-            <div className=" px-4 py-12">
+            <div  className=" px-4 py-12">
                   <h2
                         className="text-6xl font-semibold"
                         style={{
