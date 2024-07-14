@@ -9,6 +9,8 @@ import ButtonAmin from "@/app/AnimComponents/ButtonAmin/ButtonAmin";
 import HorizontalScroll from "@/app/Components/HorizontalScroll/HorizontalScroll";
 import Link from "next/link";
 import TechSection from "./Components/TechSection/TechSection";
+import useSmoothScroll from "./Hooks/ScrollAnim/useScrollAnim";
+import ZoomImageSection from "./Components/ZoomImageSection/ZoomImageSection";
 
 const projects = [
       {
@@ -129,17 +131,25 @@ const cards = [
 ];
 
 const Page = () => {
-      useEffect(() => {
-            const lenis = new Lenis();
+      useSmoothScroll();
+      // useEffect(() => {
+      //       const lenis = new Lenis({
+      //             duration: 5, // Adjust this value to control the scroll duration
+      //             easing: (t) => t * (2 - t), // Adjust the easing function to control the scroll easing
+      //             smooth: true, // Enable smooth scrolling
+      //       });
 
-            function raf(time) {
-                  lenis.raf(time);
+      //       function raf(time) {
+      //             lenis.raf(time);
+      //             requestAnimationFrame(raf);
+      //       }
 
-                  requestAnimationFrame(raf);
-            }
+      //       requestAnimationFrame(raf);
 
-            requestAnimationFrame(raf);
-      }, []);
+      //       return () => {
+      //             lenis.destroy(); // Clean up Lenis instance on component unmount
+      //       };
+      // }, []);
 
       useEffect(() => {
             window.addEventListener("blur", () => {
@@ -151,7 +161,7 @@ const Page = () => {
       }, []);
 
       return (
-            <div id="main" className=' bg-primary text-TextPrimary'>
+            <div id="main" className=" bg-primary text-TextPrimary">
                   <div>
                         <HeroSection />
                         <PixelBG />
@@ -168,6 +178,7 @@ const Page = () => {
                                     </Link>
                               </div>
                         </div>
+                        <ZoomImageSection />
                         <TechSection />
                         {/* <HorizontalScroll data={cards} /> */}
                   </div>

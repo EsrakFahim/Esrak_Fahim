@@ -7,6 +7,7 @@ import { List, SquaresFour } from "@phosphor-icons/react";
 import ProjectsGalleryCard from "../AnimComponents/ProjectsGalleryCard/ProjectsGalleryCard";
 import { motion } from "framer-motion";
 import gsap from "gsap";
+import useSmoothScroll from "../Hooks/ScrollAnim/useScrollAnim";
 
 const projects = [
       {
@@ -96,6 +97,7 @@ const projects = [
 ];
 
 const Page = () => {
+      useSmoothScroll();
       const [isList, setIsList] = useState(true);
 
       useEffect(() => {
