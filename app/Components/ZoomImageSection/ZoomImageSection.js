@@ -18,9 +18,9 @@ const ZoomImageSection = () => {
                   scrollTrigger: {
                         trigger: body,
                         start: "top top",
-                        end: "bottom top",
+                        end: "bottom center",
                         scrub: true,
-                        markers: true, // optional: add markers for debugging
+                        // markers: true, // optional: add markers for debugging
                   },
             });
 
@@ -32,7 +32,7 @@ const ZoomImageSection = () => {
             };
       }, []);
       return (
-            <div ref={targetRef} className="w-screen py-20 my-20">
+            <div ref={targetRef} className="w-screen py-20 my-32">
                   <ZoomImageAnim />
             </div>
       );
