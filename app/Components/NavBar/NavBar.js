@@ -28,41 +28,62 @@ const navItems = [
 
 const NavBar = () => {
       const [isActive, setIsActive] = useState(false);
-      const header = useRef(null);
       const button = useRef(null);
       const pathname = usePathname();
 
       useEffect(() => {
-            if (isActive) setIsActive(false);
+            if (isActive) {
+                  setIsActive(false);
+                  gsap.to(button.current, {
+                        scale: 0,
+                        duration: 0.25,
+                        ease: "power1.out",
+                  });
+            }
       }, [pathname]);
 
       useLayoutEffect(() => {
             gsap.registerPlugin(ScrollTrigger);
-            gsap.to(button.current, {
-                  scrollTrigger: {
-                        trigger: document.documentElement,
-                        start: 0,
-                        end: window.innerHeight,
-                        onLeave: () => {
-                              gsap.to(button.current, {
-                                    scale: 1,
-                                    duration: 0.25,
-                                    ease: "power1.out",
-                              });
-                        },
-                        onEnterBack: () => {
-                              gsap.to(
-                                    button.current,
-                                    {
-                                          scale: 0,
-                                          duration: 0.25,
-                                          ease: "power1.out",
-                                    },
-                                    setIsActive(false)
-                              );
-                        },
+
+            const scrollTriggerInstance = ScrollTrigger.create({
+                  trigger: document.documentElement,
+                  start: 0,
+                  end: window.innerHeight,
+                  onLeave: () => {
+                        gsap.to(button.current, {
+                              scale: 1,
+                              duration: 0.25,
+                              ease: "power1.out",
+                        });
+                  },
+                  onEnterBack: () => {
+                        gsap.to(button.current, {
+                              scale: 0,
+                              duration: 0.25,
+                              ease: "power1.out",
+                        });
+                        setIsActive(false); // Ensure the menu is hidden when scrolling back
                   },
             });
+
+            // Add an event listener to hide the menu when scrolling up
+            const onScroll = () => {
+                  if (window.scrollY === 0) {
+                        gsap.to(button.current, {
+                              scale: 0,
+                              duration: 0.25,
+                              ease: "power1.out",
+                        });
+                        setIsActive(false);
+                  }
+            };
+
+            window.addEventListener("scroll", onScroll);
+
+            return () => {
+                  window.removeEventListener("scroll", onScroll);
+                  scrollTriggerInstance.kill();
+            };
       }, []);
 
       const isHomePage = pathname === "/";
@@ -115,21 +136,21 @@ const NavBar = () => {
                                     ))}
                               </div>
                         </div>
-                        <div
-                              ref={button}
-                              className="headerBtnContainer"
-                        >
+                        <div ref={button} className="headerBtnContainer">
                               <ButtonAmin
                                     onClick={() => {
                                           setIsActive(!isActive);
+                                          gsap.to(button.current, {
+                                                scale: isActive ? 0 : 1,
+                                                duration: 0.25,
+                                                ease: "power1.out",
+                                          });
                                     }}
                                     className="btn"
                               >
                                     <div
                                           className={`burger ${
-                                                isActive
-                                                      ? "burgerActive"
-                                                      : ""
+                                                isActive ? "burgerActive" : ""
                                           }`}
                                     ></div>
                               </ButtonAmin>
