@@ -15,13 +15,13 @@ module.exports = {
                   },
                   colors: {
                         primary: {
-                              DEFAULT: "#f0ece2", // This is the default primary color
+                              DEFAULT: "#fff", // This is the default primary color
                               dark: "#0A75A5", // Darker shade
                               light: "#71C9F8", // Lighter shade
                         },
                         TextPrimary: {
                               DEFAULT: "#393e46", // This is the default primary color
-                              dark: "#f0ece2", // Darker shade
+                              dark: "#fff", // Darker shade
                               light: "#71C9F8", // Lighter shade
                         },
                   },
