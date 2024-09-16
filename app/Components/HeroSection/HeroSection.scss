@@ -13,3 +13,28 @@
       left: 100%;
       top: 0;
 }
+
+.hero-effect::before {
+      background: linear-gradient(0deg, #d2d2d2, transparent);
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      width: 100%;
+      height: 18.5rem;
+      pointer-events: none;
+      transform: rotate(180deg);
+}
+
+.hero-effect::after {
+      background: linear-gradient(0deg, #d2d2d2, transparent);
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 18.5rem;
+      pointer-events: none;
+}
