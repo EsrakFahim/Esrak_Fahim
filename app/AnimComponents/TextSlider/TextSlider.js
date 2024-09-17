@@ -43,7 +43,7 @@ const TextSlider = ({ text, direction }) => {
             }
 
             requestAnimationFrame(animate);
-            xPercent += 0.1 * direction;
+            xPercent += 0.05 * direction;
       };
 
       return (

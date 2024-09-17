@@ -8,7 +8,7 @@ const TechSection = () => {
       return (
             <div  className=" px-4 py-12">
                   <h2
-                        className="text-6xl font-semibold"
+                        className="text-6xl font-semibold text-white"
                         style={{
                               padding: "36px calc(clamp(2.5em, 8vw, 8em) * 1.5)",
                         }}
