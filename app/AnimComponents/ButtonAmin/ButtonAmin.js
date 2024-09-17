@@ -38,7 +38,7 @@ const ButtonAmin = ({ children, background = "#455ce9",rounded, ...attributes  }
       return (
             <Magnet>
                   <div
-                        className={`roundedButton ${rounded ? "rounded" : "capsule"}`}
+                        className={`roundedButton ${rounded ? "roundedCircle" : "capsule"}`}
                         style={{ overflow: "hidden" }}
                         onMouseEnter={() => manageMouseEnter()}
                         onMouseLeave={() => manageMouseLeave()}
