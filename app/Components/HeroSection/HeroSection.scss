@@ -15,9 +15,10 @@
 }
 
 .hero-effect::before {
-      background: linear-gradient(0deg, #d2d2d2, transparent);
+      background: linear-gradient(0deg, #fff, transparent);
       content: "";
       position: absolute;
+      z-index: 44;
       left: 0;
       right: 0;
       top: 0;
@@ -28,7 +29,7 @@
 }
 
 .hero-effect::after {
-      background: linear-gradient(0deg, #d2d2d2, transparent);
+      background: linear-gradient(0deg, #fff, transparent);
       content: "";
       position: absolute;
       left: 0;
