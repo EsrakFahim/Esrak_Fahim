@@ -116,7 +116,7 @@ const Page = () => {
       };
 
       return (
-            <div className="min-h-screen mt-32">
+            <div className="min-h-screen ">
                   <div
                         style={{
                               padding: "0px calc(clamp(2.5em, 8vw, 8em) * 1.7)",

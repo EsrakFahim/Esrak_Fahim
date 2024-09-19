@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
                         className={`${inter.className} bg-primary text-TextPrimary`}
                   >
                         <NavBar />
-                        {children}
+                        <div className="mt-32">{children}</div>
                         <Contact />
                         <Cursor />
                   </body>

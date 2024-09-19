@@ -49,7 +49,7 @@ const TextSlider = ({ text, direction }) => {
       return (
             <div
                   ref={slider}
-                  className="slider flex items-center w-fit whitespace-nowrap text-[20vmax] font-black uppercase leading-[0.75]"
+                  className="slider flex items-center w-fit whitespace-nowrap text-[21vmax] font-black uppercase leading-[0.75]"
             >
                   <span ref={firstText}>{text}</span>
                   <span ref={secondText}>{text}</span>
