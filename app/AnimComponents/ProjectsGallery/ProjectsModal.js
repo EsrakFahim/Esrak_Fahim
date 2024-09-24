@@ -86,7 +86,7 @@ const ProjectsModal = ({ modal, projects }) => {
                         variants={scaleAnim}
                         initial="initial"
                         animate={active ? "enter" : "closed"}
-                        className="modalContainer"
+                        className="modalContainer hidden"
                   >
                         <div
                               style={{

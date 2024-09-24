@@ -116,7 +116,7 @@ const Page = () => {
       };
 
       return (
-            <div className="min-h-screen ">
+            <div className="min-h-screen relative mt-10 lg:my-32">
                   <div
                         style={{
                               padding: "0px calc(clamp(2.5em, 8vw, 8em) * 1.7)",
@@ -138,11 +138,13 @@ const Page = () => {
                                           </div>
                                     </ButtonAmin>
                                     <ButtonAmin>
-                                          <div className="flex items-end gap-1">
-                                                <span>Design</span>
-                                                <span className="text-xs text-blue-400 ">
-                                                      11
-                                                </span>
+                                          <div className="flex items-center justify-center w-full">
+                                                <div className="flex items-end justify-center gap-1">
+                                                      <span>Design</span>
+                                                      <span className="text-xs text-blue-400 ">
+                                                            11
+                                                      </span>
+                                                </div>
                                           </div>
                                     </ButtonAmin>
                                     <ButtonAmin>

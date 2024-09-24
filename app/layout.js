@@ -3,6 +3,7 @@ import "./globals.css";
 import NavBar from "@/app/Components/NavBar/NavBar";
 import Cursor from "@/app/Components/Cursor/Cursor";
 import Contact from "@/app/Components/Footer/Contact";
+import MobileWarning from "@/app/Components/MobileWarning/MobileWarning"; // Import the new warning component
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,12 +16,13 @@ export default function RootLayout({ children }) {
       return (
             <html lang="en">
                   <body
-                        className={`${inter.className} bg-primary text-TextPrimary`}
+                        className={`${inter.className} bg-primary text-TextPrimary max-w-[100vw] overflow-x-hidden`}
                   >
                         <NavBar />
-                        <div className="mt-32">{children}</div>
+                        <div>{children}</div>
                         <Contact />
                         <Cursor />
+                        <MobileWarning /> {/* Add the mobile warning here */}
                   </body>
             </html>
       );

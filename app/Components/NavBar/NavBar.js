@@ -96,7 +96,7 @@ const NavBar = () => {
                                     isHomePage
                                           ? "text-TextPrimary"
                                           : "text-TextPrimary"
-                              } mix-blend-difference p-9 justify-between items-center box-border w-full`}
+                              } mix-blend-difference py-9 lg:px-10 lg:justify-between items-center box-border w-full`}
                         >
                               <Magnet>
                                     <Link
@@ -152,15 +152,15 @@ const NavBar = () => {
                                     </p>
                               </div>
                         </div>
-                        <div ref={button} className="headerBtnContainer">
+                        <div ref={button} className="headerBtnContainer hidden">
                               <ButtonAmin
                                     onClick={() => {
                                           setIsActive(!isActive);
-                                          gsap.to(button.current, {
-                                                scale: isActive ? 0 : 1,
-                                                duration: 0.25,
-                                                ease: "power1.out",
-                                          });
+                                          // gsap.to(button.current, {
+                                          //       scale: isActive ? 0 : 1,
+                                          //       duration: 0.25,
+                                          //       ease: "power1.out",
+                                          // });
                                     }}
                                     className="btn"
                               >

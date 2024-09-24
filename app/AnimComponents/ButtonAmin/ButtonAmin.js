@@ -9,8 +9,8 @@ const ButtonAmin = ({
       children,
       background = "#455ce9",
       rounded,
-      width = "100px",
-      height = "100px",
+      width = "50px",
+      height = "50px",
       buttonBg = "transparent",
       ...attributes
 }) => {
@@ -56,11 +56,11 @@ const ButtonAmin = ({
                   <div
                         className={`roundedButton  ${
                               rounded ? "roundedCircle" : "capsule"
-                        }`}
+                        } whitespace-nowrap`}
                         style={{
                               overflow: "hidden",
-                              width,
-                              height,
+                              minWidth:width,
+                              minHeight:height,
                               background: buttonBg,
                         }}
                         onMouseEnter={() => manageMouseEnter()}

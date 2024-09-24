@@ -146,7 +146,7 @@ const Page = () => {
             <div id="main" className=" bg-primary text-TextPrimary">
                   <div>
                         <HeroSection />
-                        <PixelBG />
+                        <PixelBG /> {/* This is the pixel background only shows in large device */}
                         <div className="my-14">
                               <ProjectsGallery
                                     projects={projects}
