@@ -78,7 +78,7 @@
       height: 80px;
       width: 80px;
       border-radius: 50%;
-      background: #1c1d20;
+      background: #1c1d20 !important;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -123,13 +123,13 @@
 
 
 .menu {
-      height: 100vh;
+      height: 100vh !important;
       background-color: rgb(41, 41, 41);
       position: fixed;
       right: 0;
       top: 0;
       color: white;
-      z-index: 11;
+      z-index: 11111;
 
       .body {
             box-sizing: border-box;

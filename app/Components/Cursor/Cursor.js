@@ -129,7 +129,7 @@ export default function Cursor({ stickyElement }) {
                               width: cursorSize,
                               height: cursorSize,
                         }}
-                        className="mainCursor"
+                        className="mainCursor hidden lg:block"
                   ></motion.div>
             </div>
       );

@@ -111,7 +111,7 @@ const NavBar = () => {
                                           </div>
                                     </Link>
                               </Magnet>
-                              <div className="nav flex items-center">
+                              <div className="nav hidden lg:flex items-center">
                                     {navItems.map((item, index) => (
                                           <Magnet key={index}>
                                                 <div className="el flex-col relative z-10 p-4 cursor-pointer">
@@ -134,6 +134,22 @@ const NavBar = () => {
                                                 </div>
                                           </Magnet>
                                     ))}
+                              </div>
+                              <div className="block lg:hidden ">
+                                    <p
+                                          onClick={() => {
+                                                setIsActive(!isActive);
+                                                gsap.to(button.current, {
+                                                      scale: isActive ? 0 : 1,
+                                                      duration: 0.25,
+                                                      ease: "power1.out",
+                                                });
+                                          }}
+                                          className="cursor-pointer flex items-center gap-2"
+                                    >
+                                          <span className="w-[8px] h-[8px]  bg-neutral-700 rounded-full" />
+                                          Menu
+                                    </p>
                               </div>
                         </div>
                         <div ref={button} className="headerBtnContainer">
