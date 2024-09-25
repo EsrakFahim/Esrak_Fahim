@@ -8,98 +8,18 @@ import ProjectsGalleryCard from "../AnimComponents/ProjectsGalleryCard/ProjectsG
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import useSmoothScroll from "../Hooks/ScrollAnim/useScrollAnim";
-
-const projects = [
-      {
-            title: "C2 Montreal",
-            src: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            color: "#000000",
-            year: "2016",
-            type: "Development & Design",
-      },
-      {
-            title: "Office Studio",
-            src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            color: "#8C8C8C",
-            year: "2016",
-            type: "Development & Design",
-      },
-      {
-            title: "Locomotive",
-            src: "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            color: "#EFE8D3",
-            year: "2016",
-            type: "Development & Design",
-      },
-      {
-            title: "Silencio",
-            src: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            color: "#706D63",
-            year: "2016",
-            type: "Development & Design",
-      },
-      {
-            title: "C2 Montreal",
-            src: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            color: "#000000",
-            year: "2016",
-            type: "Development & Design",
-      },
-      {
-            title: "Office Studio",
-            src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            color: "#8C8C8C",
-            year: "2016",
-            type: "Development & Design",
-      },
-      {
-            title: "Locomotive",
-            src: "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            color: "#EFE8D3",
-            year: "2016",
-            type: "Development & Design",
-      },
-      {
-            title: "Silencio",
-            src: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            color: "#706D63",
-            year: "2016",
-            type: "Development & Design",
-      },
-      {
-            title: "C2 Montreal",
-            src: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            color: "#000000",
-            year: "2016",
-            type: "Development & Design",
-      },
-      {
-            title: "Office Studio",
-            src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            color: "#8C8C8C",
-            year: "2016",
-            type: "Development & Design",
-      },
-      {
-            title: "Locomotive",
-            src: "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            color: "#EFE8D3",
-            year: "2016",
-            type: "Development & Design",
-      },
-      {
-            title: "Silencio",
-            src: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            color: "#706D63",
-            year: "2016",
-            type: "Development & Design",
-      },
-];
+import axios from "axios";
 
 const Page = () => {
       useSmoothScroll();
       const [isList, setIsList] = useState(true);
-
+      const [projects, setProjects] = useState([]);
+      const [page, setPage] = useState(1);
+      const [loading, setLoading] = useState(false);
+      const [hasMore, setHasMore] = useState(false);
+      console.log("page", page);
+      console.log("hasMore", hasMore);
+      // Scroll to top when layout switches
       useEffect(() => {
             const scrollOptions = {
                   top: 0,
@@ -115,15 +35,62 @@ const Page = () => {
                   .to(".projects-container", { opacity: 1, duration: 0.5 });
       };
 
+      // Fetching data from the server with pagination
+      useEffect(() => {
+            const fetchData = async () => {
+                  setLoading(true);
+                  try {
+                        const res = await axios.get(
+                              `http://localhost:5000/api/v1/project?page=${page}&limit=10`
+                        );
+                        const responseData = res.data.data;
+
+                        setProjects((prevData) => [
+                              ...prevData,
+                              ...responseData.projects,
+                        ]);
+                        setHasMore(
+                              page < Math.ceil(responseData.totalProjects / 10)
+                        );
+                        setLoading(false);
+                  } catch (error) {
+                        setLoading(false);
+                        console.error("Error fetching data:", error);
+                  }
+            };
+
+            fetchData();
+      }, [page]);
+
+      // Infinite Scroll Handler
+      const handleScroll = () => {
+            if (
+                  window.innerHeight + document.documentElement.scrollTop !==
+                  document.documentElement.offsetHeight - 500
+            )
+                  return;
+
+            if (hasMore && !loading) {
+                  setPage((prevPage) => prevPage + 1);
+            }
+      };
+
+      useEffect(() => {
+            window.addEventListener("scroll", handleScroll);
+            return () => window.removeEventListener("scroll", handleScroll);
+      }, [hasMore, loading]);
+
+      console.log(projects.length);
+
       return (
-            <div className="min-h-screen relative mt-10 lg:my-32">
+            <div className="relative mt-10 lg:my-32">
                   <div
                         style={{
                               padding: "0px calc(clamp(2.5em, 8vw, 8em) * 1.7)",
                         }}
                         className=""
                   >
-                        <h1 className="text-[4vw] ">
+                        <h1 className="text-[4vw]">
                               Projects of the Next Level on <br /> Which I Have
                               Worked
                         </h1>
@@ -132,25 +99,23 @@ const Page = () => {
                                     <ButtonAmin>
                                           <div className="flex items-end gap-1">
                                                 <span>All</span>
-                                                <span className="text-xs text-blue-400 ">
+                                                <span className="text-xs text-blue-400">
                                                       42
                                                 </span>
                                           </div>
                                     </ButtonAmin>
                                     <ButtonAmin>
-                                          <div className="flex items-center justify-center w-full">
-                                                <div className="flex items-end justify-center gap-1">
-                                                      <span>Design</span>
-                                                      <span className="text-xs text-blue-400 ">
-                                                            11
-                                                      </span>
-                                                </div>
+                                          <div className="flex items-end gap-1">
+                                                <span>Design</span>
+                                                <span className="text-xs text-blue-400">
+                                                      11
+                                                </span>
                                           </div>
                                     </ButtonAmin>
                                     <ButtonAmin>
                                           <div className="flex items-end gap-1">
                                                 <span>Development</span>
-                                                <span className="text-xs text-blue-400 ">
+                                                <span className="text-xs text-blue-400">
                                                       31
                                                 </span>
                                           </div>
@@ -174,6 +139,8 @@ const Page = () => {
                               </div>
                         </div>
                   </div>
+
+                  {/* Projects Display */}
                   <motion.div
                         data-scroll-speed={0.1}
                         className="projects-container"
@@ -201,6 +168,10 @@ const Page = () => {
                               </motion.div>
                         )}
                   </motion.div>
+
+                  {/* Loading and No More Products */}
+                  {loading && <p>Loading more products...</p>}
+                  {!hasMore && <p>No more products available</p>}
             </div>
       );
 };

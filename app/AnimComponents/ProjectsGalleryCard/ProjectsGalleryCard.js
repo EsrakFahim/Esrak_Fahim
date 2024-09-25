@@ -74,7 +74,7 @@ const ProjectsGalleryCard = ({ projects }) => {
                         }}
                   >
                         {projects?.map((project, idx) => {
-                              const { src, color, title, year, type } = project;
+                              const { projectCoverImage, color, title,projectCoverImageAlt, year, type } = project;
                               return (
                                     <div
                                           key={idx}
@@ -99,8 +99,8 @@ const ProjectsGalleryCard = ({ projects }) => {
                                                 }}
                                           >
                                                 <Image
-                                                      src={src}
-                                                      alt={title}
+                                                      src={projectCoverImage}
+                                                      alt={projectCoverImageAlt}
                                                       width={800}
                                                       height={800}
                                                       // placeholder='blur'

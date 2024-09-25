@@ -95,7 +95,7 @@ const ProjectsModal = ({ modal, projects }) => {
                               className="modalSlider"
                         >
                               {projects?.map((project, idx) => {
-                                    const { src, color, title } = project;
+                                    const { projectCoverImage, color, projectCoverImageAlt } = project;
                                     return (
                                           <div
                                                 className="modal"
@@ -105,8 +105,8 @@ const ProjectsModal = ({ modal, projects }) => {
                                                 key={idx}
                                           >
                                                 <Image
-                                                      src={src}
-                                                      alt={title}
+                                                      src={projectCoverImage}
+                                                      alt={projectCoverImageAlt}
                                                       width={300}
                                                       height={300}
                                                 />
