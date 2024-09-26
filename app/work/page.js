@@ -42,7 +42,7 @@ const Page = () => {
                   setDataLoading(true);
                   try {
                         const res = await axios.get(
-                              `http://localhost:5000/api/v1/project?category=${projectCategory}&page=${page}&limit=10`
+                              `https://portfolio-backend-lime-seven.vercel.app/api/v1/project?category=${projectCategory}&page=${page}&limit=10`
                         );
                         const responseData = res.data.data;
 
