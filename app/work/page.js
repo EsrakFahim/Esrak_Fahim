@@ -41,7 +41,7 @@ const Page = () => {
                   setLoading(true);
                   try {
                         const res = await axios.get(
-                              `http://localhost:5000/api/v1/project?page=${page}&limit=10`
+                              `${process.env.NEXT_PUBLIC_SITE_SERVER}/project?page=${page}&limit=10`
                         );
                         const responseData = res.data.data;
 
@@ -79,8 +79,6 @@ const Page = () => {
             window.addEventListener("scroll", handleScroll);
             return () => window.removeEventListener("scroll", handleScroll);
       }, [hasMore, loading]);
-
-      console.log(projects.length);
 
       return (
             <div className="relative mt-10 lg:my-32">
