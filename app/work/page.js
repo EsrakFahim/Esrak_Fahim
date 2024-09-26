@@ -41,7 +41,7 @@ const Page = () => {
                   setLoading(true);
                   try {
                         const res = await axios.get(
-                              `${process.env.NEXT_PUBLIC_SITE_SERVER}/project?page=${page}&limit=10`
+                              `${process.env.SITE_SERVER}/project?page=${page}&limit=10`
                         );
                         const responseData = res.data.data;
 
