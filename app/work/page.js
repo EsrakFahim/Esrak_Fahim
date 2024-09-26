@@ -165,10 +165,16 @@ const Page = () => {
 
                   {/* Loading and No More Products */}
                   {loading && (
-                        <p className="w-full flex justify-center items-center " >Wait a freaking second, It&apos;s loading....</p>
+                        <p className="w-full flex justify-center items-center ">
+                              Wait a freaking second, It&apos;s loading....
+                        </p>
                   )}
 
-                  {!hasMore && !loading && <p>No more projects available</p>}
+                  {!hasMore && !loading && (
+                        <p className="w-full flex justify-center items-center ">
+                              No more shits to show
+                        </p>
+                  )}
             </div>
       );
 };
