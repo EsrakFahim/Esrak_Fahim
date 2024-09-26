@@ -12,20 +12,19 @@ import axios from "axios";
 
 const Page = () => {
       useSmoothScroll();
+
       const [isList, setIsList] = useState(true);
       const [projects, setProjects] = useState([]);
       const [page, setPage] = useState(1);
       const [loading, setLoading] = useState(false);
-      const [hasMore, setHasMore] = useState(false);
-      console.log("page", page);
-      console.log("hasMore", hasMore);
+      const [hasMore, setHasMore] = useState(true); // Default is true for initial load
+
       // Scroll to top when layout switches
       useEffect(() => {
-            const scrollOptions = {
+            window.scrollTo({
                   top: 0,
                   behavior: "smooth",
-            };
-            window.scrollTo(scrollOptions);
+            });
       }, [isList]);
 
       const switchLayout = (listView) => {
@@ -52,11 +51,10 @@ const Page = () => {
                         setHasMore(
                               page < Math.ceil(responseData.totalProjects / 10)
                         );
-                        setLoading(false);
                   } catch (error) {
-                        setLoading(false);
                         console.error("Error fetching data:", error);
                   }
+                  setLoading(false);
             };
 
             fetchData();
@@ -64,13 +62,12 @@ const Page = () => {
 
       // Infinite Scroll Handler
       const handleScroll = () => {
-            if (
-                  window.innerHeight + document.documentElement.scrollTop !==
-                  document.documentElement.offsetHeight - 500
-            )
-                  return;
+            const scrollPosition =
+                  window.innerHeight + document.documentElement.scrollTop;
+            const maxScrollPosition =
+                  document.documentElement.offsetHeight - 500;
 
-            if (hasMore && !loading) {
+            if (scrollPosition >= maxScrollPosition && hasMore && !loading) {
                   setPage((prevPage) => prevPage + 1);
             }
       };
@@ -86,7 +83,6 @@ const Page = () => {
                         style={{
                               padding: "0px calc(clamp(2.5em, 8vw, 8em) * 1.7)",
                         }}
-                        className=""
                   >
                         <h1 className="text-[4vw]">
                               Projects of the Next Level on <br /> Which I Have
@@ -168,8 +164,11 @@ const Page = () => {
                   </motion.div>
 
                   {/* Loading and No More Products */}
-                  {loading && <p>Loading more products...</p>}
-                  {!hasMore && <p>No more products available</p>}
+                  {loading && (
+                        <p className="w-full flex justify-center items-center " >Wait a freaking second, It&apos;s loading....</p>
+                  )}
+
+                  {!hasMore && !loading && <p>No more projects available</p>}
             </div>
       );
 };
