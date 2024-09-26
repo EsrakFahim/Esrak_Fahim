@@ -41,7 +41,7 @@ const Page = () => {
                   setLoading(true);
                   try {
                         const res = await axios.get(
-                              `${process.env.SITE_SERVER}/project?page=${page}&limit=10`
+                              `https://portfolio-backend-lime-seven.vercel.app/api/v1/project?page=${page}&limit=10`
                         );
                         const responseData = res.data.data;
 
