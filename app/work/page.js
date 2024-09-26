@@ -16,8 +16,10 @@ const Page = () => {
       const [isList, setIsList] = useState(true);
       const [projects, setProjects] = useState([]);
       const [page, setPage] = useState(1);
+      const [dataLoading, setDataLoading] = useState(false);
       const [loading, setLoading] = useState(false);
       const [hasMore, setHasMore] = useState(true); // Default is true for initial load
+      const [projectCategory, setProjectCategory] = useState("all");
 
       // Scroll to top when layout switches
       useEffect(() => {
@@ -37,10 +39,10 @@ const Page = () => {
       // Fetching data from the server with pagination
       useEffect(() => {
             const fetchData = async () => {
-                  setLoading(true);
+                  setDataLoading(true);
                   try {
                         const res = await axios.get(
-                              `https://portfolio-backend-lime-seven.vercel.app/api/v1/project?page=${page}&limit=10`
+                              `http://localhost:5000/api/v1/project?category=${projectCategory}&page=${page}&limit=10`
                         );
                         const responseData = res.data.data;
 
@@ -54,11 +56,11 @@ const Page = () => {
                   } catch (error) {
                         console.error("Error fetching data:", error);
                   }
-                  setLoading(false);
+                  setDataLoading(false);
             };
 
             fetchData();
-      }, [page]);
+      }, [page, projectCategory]);
 
       // Infinite Scroll Handler
       const handleScroll = () => {
@@ -67,7 +69,11 @@ const Page = () => {
             const maxScrollPosition =
                   document.documentElement.offsetHeight - 500;
 
-            if (scrollPosition >= maxScrollPosition && hasMore && !loading) {
+            if (
+                  scrollPosition >= maxScrollPosition &&
+                  hasMore &&
+                  !dataLoading
+            ) {
                   setPage((prevPage) => prevPage + 1);
             }
       };
@@ -75,7 +81,13 @@ const Page = () => {
       useEffect(() => {
             window.addEventListener("scroll", handleScroll);
             return () => window.removeEventListener("scroll", handleScroll);
-      }, [hasMore, loading]);
+      }, [hasMore, dataLoading]);
+
+      const handleProjectCategory = (category) => {
+            setProjectCategory(category);
+            setProjects([]);
+            setPage(1);
+      };
 
       return (
             <div className="relative mt-10 lg:my-32">
@@ -91,7 +103,14 @@ const Page = () => {
                         <div className="flex justify-between items-center">
                               <div className="flex items-center gap-6 my-10">
                                     <ButtonAmin>
-                                          <div className="flex items-end gap-1">
+                                          <div
+                                                onClick={() =>
+                                                      handleProjectCategory(
+                                                            "all"
+                                                      )
+                                                }
+                                                className="flex items-end gap-1"
+                                          >
                                                 <span>All</span>
                                                 <span className="text-xs text-blue-400">
                                                       42
@@ -99,7 +118,14 @@ const Page = () => {
                                           </div>
                                     </ButtonAmin>
                                     <ButtonAmin>
-                                          <div className="flex items-end gap-1">
+                                          <div
+                                                onClick={() =>
+                                                      handleProjectCategory(
+                                                            "Design"
+                                                      )
+                                                }
+                                                className="flex items-end gap-1"
+                                          >
                                                 <span>Design</span>
                                                 <span className="text-xs text-blue-400">
                                                       11
@@ -107,7 +133,14 @@ const Page = () => {
                                           </div>
                                     </ButtonAmin>
                                     <ButtonAmin>
-                                          <div className="flex items-end gap-1">
+                                          <div
+                                                onClick={() =>
+                                                      handleProjectCategory(
+                                                            "Development"
+                                                      )
+                                                }
+                                                className="flex items-end gap-1"
+                                          >
                                                 <span>Development</span>
                                                 <span className="text-xs text-blue-400">
                                                       31
@@ -164,13 +197,13 @@ const Page = () => {
                   </motion.div>
 
                   {/* Loading and No More Products */}
-                  {loading && (
+                  {dataLoading && (
                         <p className="w-full flex justify-center items-center ">
                               Wait a freaking second, It&apos;s loading....
                         </p>
                   )}
 
-                  {!hasMore && !loading && (
+                  {!hasMore && !dataLoading && (
                         <p className="w-full flex justify-center items-center ">
                               No more shits to show
                         </p>

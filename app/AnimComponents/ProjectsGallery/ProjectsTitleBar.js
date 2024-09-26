@@ -19,7 +19,11 @@ const ProjectsTitleBar = ({ index, projects, setModal, fontMultiplier }) => {
                         >
                               {projects.title}
                         </h2>
-                        <p>Design & Development</p>
+                        <p>
+                              {projects?.projectRole === "Both"
+                                    ? "Design & Development"
+                                    : projects?.projectRole}
+                        </p>
                   </div>
             </motion.div>
       );

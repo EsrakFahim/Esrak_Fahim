@@ -152,15 +152,15 @@ const NavBar = () => {
                                     </p>
                               </div>
                         </div>
-                        <div ref={button} className="headerBtnContainer hidden">
+                        <div ref={button} className="headerBtnContainer hidden lg:block">
                               <ButtonAmin
                                     onClick={() => {
                                           setIsActive(!isActive);
-                                          // gsap.to(button.current, {
-                                          //       scale: isActive ? 0 : 1,
-                                          //       duration: 0.25,
-                                          //       ease: "power1.out",
-                                          // });
+                                          gsap.to(button.current, {
+                                                scale: isActive ? 0 : 1,
+                                                duration: 0.25,
+                                                ease: "power1.out",
+                                          });
                                     }}
                                     className="btn"
                               >
