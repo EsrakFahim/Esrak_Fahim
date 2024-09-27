@@ -69,12 +69,12 @@ const NavBar = () => {
             // Add an event listener to hide the menu when scrolling up
             const onScroll = () => {
                   if (window.scrollY === 0) {
+                        setIsActive(false);
                         gsap.to(button.current, {
                               scale: 0,
                               duration: 0.25,
                               ease: "power1.out",
                         });
-                        setIsActive(false);
                   }
             };
 
@@ -152,7 +152,10 @@ const NavBar = () => {
                                     </p>
                               </div>
                         </div>
-                        <div ref={button} className="headerBtnContainer hidden lg:block">
+                        <div
+                              ref={button}
+                              className="headerBtnContainer hidden lg:block"
+                        >
                               <ButtonAmin
                                     onClick={() => {
                                           setIsActive(!isActive);
