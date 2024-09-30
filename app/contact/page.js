@@ -4,6 +4,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import useSmoothScroll from "../Hooks/ScrollAnim/useScrollAnim";
 import ButtonAmin from "../AnimComponents/ButtonAmin/ButtonAmin";
+import axios from "axios";
 
 const Page = () => {
       useSmoothScroll();
@@ -14,8 +15,31 @@ const Page = () => {
             reset,
       } = useForm();
 
-      const handleFormDetails = (data) => {
-            console.log(data); // Handle form data
+      const handleFormDetails = async (data) => {
+            try {
+                  const res = await axios.post(
+                        "http://localhost:5000/api/v1/client",
+                        {
+                              orgName: data.orgName,
+                              clientName: data.clientName,
+                              clientEmail: data.clientEmail,
+                              clientMessage: data.clientMessage,
+                              reqService:data.reqService
+                        }
+                  );
+
+                  // Handle success
+                  if (res.status === 200) {
+                        alert("Form submitted successfully!");
+                        reset(); // Reset the form if using react-hook-form's reset function
+                  }
+            } catch (error) {
+                  // Handle error
+                  console.error("Error submitting the form:", error);
+                  alert(
+                        "There was an issue submitting the form. Please try again."
+                  );
+            }
       };
 
       return (
@@ -51,15 +75,19 @@ const Page = () => {
                                                       autoComplete="off"
                                                       placeholder="Esrak Fahim*"
                                                       type="text"
-                                                      {...register("name", {
-                                                            required: "Name is required",
-                                                      })}
+                                                      {...register(
+                                                            "clientName",
+                                                            {
+                                                                  required: "Name is required",
+                                                            }
+                                                      )}
                                                       className="w-full border-b border-neutral-300 py-4 px-2 rounded-md block outline-none text-[1.3rem]"
                                                 />
-                                                {errors.name && (
+                                                {errors.clientName && (
                                                       <p className="text-red-600">
                                                             {
-                                                                  errors.name
+                                                                  errors
+                                                                        .clientName
                                                                         ?.message
                                                             }
                                                       </p>
@@ -69,25 +97,29 @@ const Page = () => {
                                           {/* Email Field */}
                                           <div className="mb-5 py-5 flex flex-col items-start justify-start gap-6">
                                                 <label
-                                                      htmlFor="contact_email"
+                                                      htmlFor="client_email"
                                                       className="text-black ml-1 text-[1.3em] leading-8"
                                                 >
                                                       Enter your email
                                                 </label>
                                                 <input
-                                                      id="contact_email"
+                                                      id="client_email"
                                                       autoComplete="off"
                                                       placeholder="info@esrakfahim.me*"
                                                       type="email"
-                                                      {...register("email", {
-                                                            required: "Email is required",
-                                                      })}
+                                                      {...register(
+                                                            "clientEmail",
+                                                            {
+                                                                  required: "Email is required",
+                                                            }
+                                                      )}
                                                       className="w-full border-b border-neutral-300 py-4 px-2 rounded-md block outline-none text-[1.3rem]"
                                                 />
-                                                {errors.email && (
+                                                {errors.clientEmail && (
                                                       <p className="text-red-600">
                                                             {
-                                                                  errors.email
+                                                                  errors
+                                                                        .clientEmail
                                                                         ?.message
                                                             }
                                                       </p>
@@ -137,9 +169,12 @@ const Page = () => {
                                                       autoComplete="off"
                                                       placeholder="Web Development or Web Design"
                                                       type="text"
-                                                      // {...register("reqService", {
-                                                      //       required: "Required Service is required",
-                                                      // })}
+                                                      {...register(
+                                                            "reqService",
+                                                            {
+                                                                  // required: "Required Service is required",
+                                                            }
+                                                      )}
                                                       className="w-full border-b border-neutral-300 py-4 px-2 rounded-md block outline-none text-[1.3rem]"
                                                 />
                                                 {errors.reqService && (
