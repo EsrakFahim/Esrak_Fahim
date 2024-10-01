@@ -5,6 +5,7 @@ import Cursor from "@/app/Components/Cursor/Cursor";
 import Contact from "@/app/Components/Footer/Contact";
 import MobileWarning from "@/app/Components/MobileWarning/MobileWarning"; // Import the new warning component
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
                         <div>
                               {children}
                               <Analytics />
+                              <SpeedInsights />
                         </div>
                         <Contact />
                         <Cursor />
