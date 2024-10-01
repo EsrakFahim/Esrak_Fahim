@@ -4,6 +4,7 @@ import NavBar from "@/app/Components/NavBar/NavBar";
 import Cursor from "@/app/Components/Cursor/Cursor";
 import Contact from "@/app/Components/Footer/Contact";
 import MobileWarning from "@/app/Components/MobileWarning/MobileWarning"; // Import the new warning component
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,10 @@ export default function RootLayout({ children }) {
                         className={`${inter.className} bg-primary text-TextPrimary max-w-[100vw] overflow-x-hidden`}
                   >
                         <NavBar />
-                        <div>{children}</div>
+                        <div>
+                              {children}
+                              <Analytics />
+                        </div>
                         <Contact />
                         <Cursor />
                         <MobileWarning /> {/* Add the mobile warning here */}
