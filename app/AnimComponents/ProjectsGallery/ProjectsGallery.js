@@ -7,7 +7,6 @@ import ProjectsTitleBar from "./ProjectsTitleBar";
 
 const ProjectsGallery = ({ projects, fontMultiplier }) => {
       const [modal, setModal] = useState({ active: false, index: 0 });
-      console.log(modal);
       return (
             <div>
                   <div className="flex min-h-screen items-center justify-center my-40">
