@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import useSmoothScroll from "../Hooks/ScrollAnim/useScrollAnim";
 import ButtonAmin from "../AnimComponents/ButtonAmin/ButtonAmin";
@@ -8,12 +8,31 @@ import axios from "axios";
 
 const Page = () => {
       useSmoothScroll();
+      const [clientIP, setClientIP] = useState("");
+      const [messageLoading, setMessageLoading] = useState(false);
+
       const {
             register,
             handleSubmit,
             formState: { errors },
             reset,
       } = useForm();
+
+      // Fetch client's IP address
+      useEffect(() => {
+            const fetchIP = async () => {
+                  try {
+                        const res = await axios.get(
+                              "https://api.ipify.org?format=json"
+                        );
+                        setClientIP(res.data.ip); // Set the client's IP
+                  } catch (error) {
+                        console.error("Error fetching client IP:", error);
+                  }
+            };
+
+            fetchIP();
+      }, []);
 
       const handleFormDetails = async (data) => {
             try {
@@ -24,13 +43,15 @@ const Page = () => {
                               clientName: data.clientName,
                               clientEmail: data.clientEmail,
                               clientMessage: data.clientMessage,
-                              reqService:data.reqService
+                              reqService: data.reqService,
+                              clientIP: clientIP, // Send the client's IP
                         }
                   );
 
                   // Handle success
                   if (res.status === 200) {
                         alert("Form submitted successfully!");
+                        setMessageLoading(false); // Stop loading
                         reset(); // Reset the form if using react-hook-form's reset function
                   }
             } catch (error) {
@@ -203,7 +224,7 @@ const Page = () => {
                                                       {...register(
                                                             "clientMessage",
                                                             {
-                                                                  required: "your message is required",
+                                                                  required: "Your message is required",
                                                             }
                                                       )}
                                                       className="w-full border-b border-neutral-300 py-4 px-2 rounded-md block outline-none text-[1.3rem]"
@@ -229,9 +250,27 @@ const Page = () => {
                                                 >
                                                       <button
                                                             type="submit"
-                                                            className=""
+                                                            className={
+                                                                  messageLoading
+                                                                        ? "disabled:opacity-50"
+                                                                        : ""
+                                                            }
+                                                            disabled={
+                                                                  messageLoading
+                                                            } // Disable the button when loading
+                                                            onClick={() =>
+                                                                  setMessageLoading(
+                                                                        true
+                                                                  )
+                                                            } // Start loading on click
                                                       >
-                                                            <span>Submit</span>
+                                                            {messageLoading ? (
+                                                                  <span className="loader" />
+                                                            ) : (
+                                                                  <span>
+                                                                        Submit
+                                                                  </span>
+                                                            )}
                                                       </button>
                                                 </ButtonAmin>
                                           </div>
