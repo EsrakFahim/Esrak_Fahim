@@ -35,9 +35,10 @@ const Page = () => {
       }, []);
 
       const handleFormDetails = async (data) => {
+            setMessageLoading(true);
             try {
                   const res = await axios.post(
-                        "https://portfolio-backend-lime-seven.vercel.app/api/v1/client",
+                        "https://portfolio-backend-lime-seven.vercel.app/api/v1/client/",
                         {
                               orgName: data.orgName,
                               clientName: data.clientName,
@@ -60,6 +61,7 @@ const Page = () => {
                   alert(
                         "There was an issue submitting the form. Please try again."
                   );
+                  setMessageLoading(false); // Stop loading
             }
       };
 
@@ -252,25 +254,14 @@ const Page = () => {
                                                             type="submit"
                                                             className={
                                                                   messageLoading
-                                                                        ? "disabled:opacity-50"
+                                                                        ? "disabled:opacity-50 disabled:cursor-not-allowed"
                                                                         : ""
                                                             }
                                                             disabled={
                                                                   messageLoading
                                                             } // Disable the button when loading
-                                                            onClick={() =>
-                                                                  setMessageLoading(
-                                                                        true
-                                                                  )
-                                                            } // Start loading on click
                                                       >
-                                                            {messageLoading ? (
-                                                                  <span className="loader" />
-                                                            ) : (
-                                                                  <span>
-                                                                        Submit
-                                                                  </span>
-                                                            )}
+                                                            <span>Submit</span>
                                                       </button>
                                                 </ButtonAmin>
                                           </div>
