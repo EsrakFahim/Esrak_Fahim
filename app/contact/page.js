@@ -47,7 +47,7 @@ const Page = () => {
                               clientIP: clientIP, // Send the client's IP
                         }
                   );
-
+                  console.log(res);
                   // Handle success
                   if (res.status === 200) {
                         alert("Form submitted successfully!");
