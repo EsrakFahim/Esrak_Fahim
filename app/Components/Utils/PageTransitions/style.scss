@@ -1,0 +1,17 @@
+.inner {
+      background-color: black;
+
+      .page {
+            background-color: rgb(91, 188, 39) !important;
+      }
+
+      .slide {
+            height: 100vh !important;
+            width: 100vw !important;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: red;
+            z-index: 9999999999999;
+      }
+}
