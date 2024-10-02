@@ -23,7 +23,7 @@ export const slide = {
             y: "100vh", // Start off-screen
       },
       enter: {
-            y: 0, // Slide to the normal position (on-screen)
+            y: "100vh", // Slide to the normal position (on-screen)
             transition: {
                   duration: 1,
                   ease: [0.76, 0, 0.24, 1],

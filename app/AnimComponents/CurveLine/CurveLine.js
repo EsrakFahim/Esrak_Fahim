@@ -11,16 +11,23 @@ export default function CurveLine() {
       let reqId = null;
 
       useEffect(() => {
-            setPath(progress);
+            // Ensure path.current exists before trying to set the path attribute
+            if (path.current) {
+                  setPath(progress);
+            }
       }, []);
 
       const setPath = (progress) => {
             const width = window.innerWidth * 0.7;
-            path.current.setAttributeNS(
-                  null,
-                  "d",
-                  `M0 250 Q${width * x} ${250 + progress}, ${width} 250`
-            );
+
+            if (path.current) {
+                  // Check if path.current is not null before setting attribute
+                  path.current.setAttributeNS(
+                        null,
+                        "d",
+                        `M0 250 Q${width * x} ${250 + progress}, ${width} 250`
+                  );
+            }
       };
 
       const lerp = (x, y, a) => x * (1 - a) + y * a;
@@ -33,6 +40,8 @@ export default function CurveLine() {
       };
 
       const manageMouseMove = (e) => {
+            if (!path.current) return; // Add a guard clause to check if path exists
+
             const { movementY, clientX } = e;
             const pathBound = path.current.getBoundingClientRect();
             x = (clientX - pathBound.left) / pathBound.width;
@@ -65,16 +74,10 @@ export default function CurveLine() {
             <div className="w-full">
                   <div className="line">
                         <div
-                              onMouseEnter={() => {
-                                    manageMouseEnter();
-                              }}
-                              onMouseMove={(e) => {
-                                    manageMouseMove(e);
-                              }}
-                              onMouseLeave={() => {
-                                    manageMouseLeave();
-                              }}
-                              className="box "
+                              onMouseEnter={manageMouseEnter}
+                              onMouseMove={manageMouseMove}
+                              onMouseLeave={manageMouseLeave}
+                              className="box"
                         ></div>
                         <svg>
                               <path ref={path}></path>
